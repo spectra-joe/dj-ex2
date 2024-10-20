@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odd Even Checker and Factorial</title>
+    <style>
+        h1, h2, h3 {
+            text-align: center;
+        }
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .result, .factorial-result {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kamaraj College of Engineering and Technology</h1>
+    <h2>Web Applications using Django Framework</h2>
+    <h3>Name : Darin </h3>
+    <h3>Roll No : 22UIT020</h3>
+
+    <!-- ODD or EVEN Checker -->
+    <h3>ODD or EVEN Checker</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="number">Enter a number:</label>
+        <input type="number" name="number" id="number" required>
+        <button type="submit" name="check_number">Check</button>
+    </form>
+    
+    <div class="result">
+        {% if result %}
+            <p>{{ result }}</p>
+        {% endif %}
+    </div>
+
+    <!-- Factorial Calculation -->
+    <h3>Factorial Calculator</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="number_factorial">Enter a number:</label>
+        <input type="number" name="number_factorial" id="number_factorial" required>
+        <button type="submit" name="factorial">Calculate Factorial</button>
+    </form>
+
+    <div class="factorial-result">
+        {% if factorial_result is not None %}
+            <p>Factorial: {{ factorial_result }}</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>
